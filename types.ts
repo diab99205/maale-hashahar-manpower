@@ -65,10 +65,17 @@ export interface ServiceItem {
 }
 
 export interface ProjectItem {
-  name: string;
-  location: string;
-  description: string;
-  image: string; 
+  image: string;
+  // We replace single name/location/desc with language-specific ones
+  name_he: string;
+  name_ar: string;
+  name_en: string;
+  location_he: string;
+  location_ar: string;
+  location_en: string;
+  description_he: string;
+  description_ar: string;
+  description_en: string;
 }
 
 export interface AccessibilityState {

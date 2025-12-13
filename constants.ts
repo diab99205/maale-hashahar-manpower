@@ -188,28 +188,52 @@ export const SERVICES_LIST = [
 
 export const PROJECTS_LIST: ProjectItem[] = [
   {
-    name: 'Etz HaShaked Real Estate',
-    location: 'Netanya',
-    description: 'Residential building up to 32 floors',
-    image: '/client-etz-hashaked.jpeg', // Changed from ./ to /
+    image: '/client-etz-hashaked.png',
+    name_en: 'Etz HaShaked Real Estate',
+    name_he: 'עץ השקד נדל״ן',
+    name_ar: 'إتس هشكيد للعقارات',
+    location_en: 'Netanya',
+    location_he: 'נתניה',
+    location_ar: 'نتانيا',
+    description_en: 'Residential building up to 32 floors',
+    description_he: 'בניין מגורים עד 32 קומות',
+    description_ar: 'مبنى سكني حتى 32 طابقًا',
   },
   {
-    name: 'Virtue Group',
-    location: 'Ramat HaSharon',
-    description: 'Residential building up to 7 floors',
-    image: '/client-virtue.jpeg', // Changed from ./ to /
+    image: '/client-virtue.png',
+    name_en: 'Virtue Group',
+    name_he: 'קבוצת וירטו',
+    name_ar: 'مجموعة فيرتو',
+    location_en: 'Ramat HaSharon',
+    location_he: 'רמת השרון',
+    location_ar: 'رمات هشارون',
+    description_en: 'Residential building up to 7 floors',
+    description_he: 'בניין מגורים עד 7 קומות',
+    description_ar: 'مبنى سكني حتى 7 طوابق',
   },
   {
-    name: 'Gani Bar',
-    location: 'Eilat',
-    description: 'Residential building up to 9 floors',
-    image: '/client-gani-bar.png', // Changed from ./ to /
+    image: '/client-gani-bar.png',
+    name_en: 'Gani Bar',
+    name_he: 'גני בר',
+    name_ar: 'جاني بار',
+    location_en: 'Eilat',
+    location_he: 'אילת',
+    location_ar: 'إيلات',
+    description_en: 'Residential building up to 9 floors',
+    description_he: 'בניין מגורים עד 9 קומות',
+    description_ar: 'مبنى سكني حتى 9 طوابק',
   },
   {
-    name: 'i-Nadlan',
-    location: 'Eilat',
-    description: 'Property Management & Construction',
-    image: '/client-inadlan.jpeg', // Changed from ./ to /
+    image: '/client-inadlan.png',
+    name_en: 'i-Nadlan',
+    name_he: 'איי-נדל״ן',
+    name_ar: 'آي-للعقارات',
+    location_en: 'Eilat',
+    location_he: 'אילת',
+    location_ar: 'إيلات',
+    description_en: 'Property Management & Construction',
+    description_he: 'ניהול נכסים ובנייה',
+    description_ar: 'إدارة الممتلكات والبناء',
   },
 ];
 

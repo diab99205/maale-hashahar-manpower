@@ -83,7 +83,7 @@ function App() {
                 />
              </div>
              
-             {/* Text Name - You can remove this div if your image already includes text */}
+             {/* Company Name Text */}
              <div className="flex flex-col justify-center">
                <span className={`font-black text-xl md:text-2xl tracking-wide uppercase leading-none mb-1 transition-colors ${scrolled || mobileMenuOpen ? 'text-white' : 'text-white drop-shadow-md'}`}>
                  {lang === 'en' ? 'A. Maale Hashahar' : 'א. מעלה השחר'}
@@ -302,42 +302,51 @@ function App() {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {PROJECTS_LIST.map((project, idx) => (
-              <motion.div 
-                 key={idx} 
-                 whileHover={{ y: -5 }}
-                 className="group rounded-xl overflow-hidden shadow-lg transition-all bg-white border border-slate-100 flex flex-col h-full"
-              >
-                 {/* Updated Image Container for Logos */}
-                 <div className="h-56 bg-white relative overflow-hidden flex items-center justify-center p-8 border-b border-slate-100">
-                    <img 
-                      src={project.image} 
-                      alt={project.name} 
-                      className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
-                      onError={(e) => {
-                        // Fallback for missing images - shows styled box with text
-                        e.currentTarget.style.display = 'none';
-                        const parent = e.currentTarget.parentElement;
-                        if(parent) {
-                          parent.classList.add('bg-slate-50');
-                          const div = document.createElement('div');
-                          div.className = 'text-center font-bold text-slate-400 uppercase tracking-widest';
-                          div.innerText = 'Logo';
-                          parent.appendChild(div);
-                        }
-                      }}
-                    />
-                    <div className="absolute top-4 left-4 text-xs font-bold px-3 py-1.5 rounded-sm shadow-md bg-amber-400 text-slate-900 uppercase tracking-wider">
-                       {project.location}
-                    </div>
-                 </div>
-                 <div className="p-6 flex flex-col flex-grow">
-                    <h3 className={`font-bold text-xl mb-3 leading-tight ${theme.primaryText}`}>{project.name}</h3>
-                    <div className="h-1 w-12 mb-4 bg-amber-400"></div>
-                    <p className={`text-sm leading-relaxed ${theme.muted}`}>{project.description}</p>
-                 </div>
-              </motion.div>
-            ))}
+            {PROJECTS_LIST.map((project, idx) => {
+              // Get the correct language fields
+              const pName = lang === 'he' ? project.name_he : (lang === 'ar' ? project.name_ar : project.name_en);
+              const pLoc = lang === 'he' ? project.location_he : (lang === 'ar' ? project.location_ar : project.location_en);
+              const pDesc = lang === 'he' ? project.description_he : (lang === 'ar' ? project.description_ar : project.description_en);
+
+              return (
+                <motion.div 
+                   key={idx} 
+                   whileHover={{ y: -5 }}
+                   className="group rounded-xl overflow-hidden shadow-lg transition-all bg-white border border-slate-100 flex flex-col h-full"
+                >
+                   {/* Image Container */}
+                   <div className="h-56 bg-white relative overflow-hidden flex items-center justify-center p-8 border-b border-slate-100">
+                      <img 
+                        src={project.image} 
+                        alt={pName} 
+                        className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
+                        onError={(e) => {
+                          e.currentTarget.style.display = 'none';
+                          const parent = e.currentTarget.parentElement;
+                          if(parent) {
+                            parent.classList.add('bg-slate-50');
+                            const div = document.createElement('div');
+                            div.className = 'text-center font-bold text-slate-400 uppercase tracking-widest';
+                            div.innerText = 'Logo';
+                            parent.appendChild(div);
+                          }
+                        }}
+                      />
+                      {/* Location Badge (Translated) */}
+                      <div className="absolute top-4 left-4 text-xs font-bold px-3 py-1.5 rounded-sm shadow-md bg-amber-400 text-slate-900 uppercase tracking-wider">
+                         {pLoc}
+                      </div>
+                   </div>
+                   
+                   {/* Content Container */}
+                   <div className="p-6 flex flex-col flex-grow">
+                      <h3 className={`font-bold text-xl mb-3 leading-tight ${theme.primaryText}`}>{pName}</h3>
+                      <div className="h-1 w-12 mb-4 bg-amber-400"></div>
+                      <p className={`text-sm leading-relaxed ${theme.muted}`}>{pDesc}</p>
+                   </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
