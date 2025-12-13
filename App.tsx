@@ -6,27 +6,6 @@ import LanguageSwitcher from './components/LanguageSwitcher';
 import { Phone, Mail, Menu, X, CheckCircle, ArrowRight, Instagram, Facebook, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Custom Logo Icon Component (Yellow Sunburst + Helmet + Aleph)
-const LogoIcon = ({ className = "h-12 w-12" }: { className?: string }) => (
-  <svg viewBox="0 0 100 100" className={className} fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-     {/* Sunburst Rays - radiating from behind the helmet */}
-     <g fill="#FBBF24">
-       {[0, 18, 36, 54, 72, 90, 108, 126, 144, 162, 180].map((angle, i) => (
-         <rect key={i} x="45" y="0" width="10" height="25" rx="1" transform={`rotate(${angle - 90} 50 65)`} />
-       ))}
-     </g>
-     
-     {/* Hard Hat Dome */}
-     <path d="M20 82 L80 82 L80 78 Q80 45 50 45 Q20 45 20 78 Z" fill="#FBBF24" />
-     
-     {/* Hard Hat Brim/Visor */}
-     <path d="M10 82 H90 V88 Q90 92 85 92 H15 Q10 92 10 88 Z" fill="#FBBF24" />
-     
-     {/* Aleph (א) inside the helmet */}
-     <text x="50" y="75" textAnchor="middle" fontFamily="sans-serif" fontWeight="bold" fontSize="28" fill="#FFFFFF" style={{ filter: 'drop-shadow(0px 1px 1px rgba(0,0,0,0.1))' }}>א</text>
-  </svg>
-);
-
 function App() {
   const [lang, setLang] = useState<Language>('he');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -95,12 +74,16 @@ function App() {
         <div className="container mx-auto px-4 md:px-8 h-24 flex items-center justify-between">
           {/* Logo Area */}
           <div className="flex items-center gap-4 cursor-pointer h-full py-2 select-none group" onClick={() => scrollTo('home')}>
-             {/* Icon Only - No White Box */}
+             {/* Main Logo Image */}
              <div className="relative z-10 transition-transform group-hover:scale-105 duration-300">
-                <LogoIcon className="h-14 w-14 md:h-16 md:w-16 drop-shadow-lg" />
+                <img 
+                  src="/logo-main.png" 
+                  alt="Company Logo" 
+                  className="h-14 w-auto md:h-16 object-contain drop-shadow-lg" 
+                />
              </div>
              
-             {/* Text Name */}
+             {/* Text Name - You can remove this div if your image already includes text */}
              <div className="flex flex-col justify-center">
                <span className={`font-black text-xl md:text-2xl tracking-wide uppercase leading-none mb-1 transition-colors ${scrolled || mobileMenuOpen ? 'text-white' : 'text-white drop-shadow-md'}`}>
                  {lang === 'en' ? 'A. Maale Hashahar' : 'א. מעלה השחר'}
@@ -468,7 +451,7 @@ function App() {
          <div className="container mx-auto">
             {/* Footer Logo */}
             <div className="flex flex-col items-center justify-center mb-6 gap-3">
-               <LogoIcon className="h-16 w-16" />
+               <img src="/logo-main.png" alt="Logo" className="h-16 w-auto object-contain" />
                <div className="flex flex-col leading-tight">
                   <span className="font-bold text-lg text-white">א. מעלה השחר</span>
                   <span className="text-xs text-amber-400 tracking-wider">שירותי כוח אדם</span>
