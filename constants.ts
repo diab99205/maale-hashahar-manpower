@@ -224,7 +224,7 @@ export const PROJECTS_LIST: ProjectItem[] = [
     description_ar: 'مبنى سكني حتى 9 طوابק',
   },
   {
-    image: '/client-inadlan.jpeg',
+    image: '/client-inadlan.jpg',
     name_en: 'i-Nadlan',
     name_he: 'איי-נדל״ן',
     name_ar: 'آي-للعقارات',
