@@ -188,7 +188,7 @@ export const SERVICES_LIST = [
 
 export const PROJECTS_LIST: ProjectItem[] = [
   {
-    image: '/client-etz-hashaked.png',
+    image: '/client-etz-hashaked.jpeg',
     name_en: 'Etz HaShaked Real Estate',
     name_he: 'עץ השקד נדל״ן',
     name_ar: 'إتس هشكيد للعقارات',
