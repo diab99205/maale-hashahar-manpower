@@ -191,25 +191,25 @@ export const PROJECTS_LIST: ProjectItem[] = [
     name: 'Etz HaShaked Real Estate',
     location: 'Netanya',
     description: 'Residential building up to 32 floors',
-    image: './client-etz-hashaked.png', 
+    image: '/client-etz-hashaked.jpeg', // Changed from ./ to /
   },
   {
     name: 'Virtue Group',
     location: 'Ramat HaSharon',
     description: 'Residential building up to 7 floors',
-    image: './client-virtue.png',
+    image: '/client-virtue.jpeg', // Changed from ./ to /
   },
   {
     name: 'Gani Bar',
     location: 'Eilat',
     description: 'Residential building up to 9 floors',
-    image: './client-gani-bar.png',
+    image: '/client-gani-bar.png', // Changed from ./ to /
   },
   {
     name: 'i-Nadlan',
     location: 'Eilat',
     description: 'Property Management & Construction',
-    image: './client-inadlan.png',
+    image: '/client-inadlan.jpeg', // Changed from ./ to /
   },
 ];
 
