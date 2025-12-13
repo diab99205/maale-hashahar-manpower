@@ -33,7 +33,8 @@ const Switch = ({ checked, onCheckedChange, id }: { checked: boolean, onCheckedC
     role="switch" 
     aria-checked={checked}
     onClick={() => onCheckedChange(!checked)}
-    className={`w-11 h-6 rounded-full transition-colors relative flex items-center ${checked ? 'bg-teal-600' : 'bg-gray-200'}`}
+    // Changed: bg-teal-600 -> bg-amber-500
+    className={`w-11 h-6 rounded-full transition-colors relative flex items-center ${checked ? 'bg-amber-500' : 'bg-gray-200'}`}
   >
     <span className={`block w-5 h-5 rounded-full bg-white shadow transform transition-transform ${checked ? 'translate-x-5' : 'translate-x-0.5'}`} />
   </button>
@@ -44,7 +45,8 @@ const Separator = () => <div className="h-px bg-gray-200 w-full my-1" />;
 const Button = ({ children, onClick, className, variant = 'default', disabled, title }: any) => {
   const base = "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50";
   const variants = {
-    default: "bg-teal-600 text-white hover:bg-teal-700 shadow",
+    // Changed: Teal styles -> Yellow Background + Dark Text (Construction Theme)
+    default: "bg-amber-400 text-slate-900 hover:bg-amber-300 shadow",
     outline: "border border-gray-200 bg-white hover:bg-gray-100 hover:text-gray-900",
     icon: "h-9 w-9"
   };
@@ -161,11 +163,12 @@ export const AccessibilityPanel: React.FC<Props> = ({ t, lang }) => {
     <>
       <Button
         onClick={() => setOpen(true)}
-        className={`fixed bottom-5 ${isRTL ? 'left-5' : 'right-5'} z-50 h-14 w-14 rounded-full shadow-lg bg-teal-600 hover:bg-teal-700 flex items-center justify-center`}
+        // Changed: Teal -> Amber bg, Slate text
+        className={`fixed bottom-5 ${isRTL ? 'left-5' : 'right-5'} z-50 h-14 w-14 rounded-full shadow-lg bg-amber-400 hover:bg-amber-300 text-slate-900 flex items-center justify-center`}
         aria-label={t.accessibility}
         title={t.accessibility}
       >
-        <Accessibility className="h-6 w-6 text-white" />
+        <Accessibility className="h-6 w-6" />
       </Button>
 
       {open && (
@@ -181,7 +184,8 @@ export const AccessibilityPanel: React.FC<Props> = ({ t, lang }) => {
              <div className="p-6">
                 <div className="flex items-center justify-between pb-6 border-b border-gray-100">
                   <div>
-                    <h2 className="flex items-center gap-3 text-teal-600 text-lg font-bold">
+                    {/* Changed: Text-teal-600 -> Text-amber-600 */}
+                    <h2 className="flex items-center gap-3 text-amber-600 text-lg font-bold">
                       <Accessibility className="h-5 w-5" />
                       {t.accessibilityTools}
                     </h2>
@@ -207,7 +211,8 @@ export const AccessibilityPanel: React.FC<Props> = ({ t, lang }) => {
                         <ZoomOut className="h-4 w-4" />
                       </Button>
                       <div className="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
-                        <div className="h-full bg-teal-600 transition-all" style={{ width: `${(fontSize - 50) / 1.5}%` }} />
+                        {/* Changed: bg-teal-600 -> bg-amber-500 */}
+                        <div className="h-full bg-amber-500 transition-all" style={{ width: `${(fontSize - 50) / 1.5}%` }} />
                       </div>
                       <Button variant="outline" className="p-2 h-8 w-8" onClick={() => setFontSize(Math.min(200, fontSize + 10))} disabled={fontSize >= 200}>
                         <ZoomIn className="h-4 w-4" />
@@ -348,16 +353,19 @@ export const AccessibilityPanel: React.FC<Props> = ({ t, lang }) => {
                   <Separator />
 
                   {/* Coordinator */}
-                  <div className="space-y-4 p-5 bg-teal-50 rounded-lg">
-                    <h3 className="font-semibold text-sm text-teal-900">{t.needHelp}</h3>
+                  {/* Changed: bg-teal-50 -> bg-amber-50, text-teal-900 -> text-slate-900 */}
+                  <div className="space-y-4 p-5 bg-amber-50 rounded-lg">
+                    <h3 className="font-semibold text-sm text-slate-900">{t.needHelp}</h3>
                     <div className="space-y-3 text-sm">
                       <div className="flex items-center gap-3 text-gray-600" dir="ltr">
                         <Mail className="h-4 w-4 flex-shrink-0" />
-                        <a href={`mailto:${CONTACT_INFO.email}`} className="hover:text-teal-600 underline break-all">{CONTACT_INFO.email}</a>
+                        {/* Changed: hover:text-teal-600 -> hover:text-amber-600 */}
+                        <a href={`mailto:${CONTACT_INFO.email}`} className="hover:text-amber-600 underline break-all">{CONTACT_INFO.email}</a>
                       </div>
                       <div className="flex items-center gap-3 text-gray-600" dir="ltr">
                         <Phone className="h-4 w-4 flex-shrink-0" />
-                        <a href={`tel:${CONTACT_INFO.phone}`} className="hover:text-teal-600">{CONTACT_INFO.phone}</a>
+                        {/* Changed: hover:text-teal-600 -> hover:text-amber-600 */}
+                        <a href={`tel:${CONTACT_INFO.phone}`} className="hover:text-amber-600">{CONTACT_INFO.phone}</a>
                       </div>
                     </div>
                   </div>
