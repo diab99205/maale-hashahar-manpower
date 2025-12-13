@@ -188,7 +188,7 @@ export const SERVICES_LIST = [
 
 export const PROJECTS_LIST: ProjectItem[] = [
   {
-    image: '/client-etz-hashaked.jpeg',
+    image: '/client-etz-hashaked.png',
     name_en: 'Etz HaShaked Real Estate',
     name_he: 'עץ השקד נדל״ן',
     name_ar: 'إتس هشكيد للعقارات',
@@ -200,7 +200,7 @@ export const PROJECTS_LIST: ProjectItem[] = [
     description_ar: 'مبنى سكني حتى 32 طابقًا',
   },
   {
-    image: '/client-virtue.jpeg,
+    image: '/client-virtue.jpeg',
     name_en: 'Virtue Group',
     name_he: 'קבוצת וירטו',
     name_ar: 'مجموعة فيرتو',
@@ -224,7 +224,7 @@ export const PROJECTS_LIST: ProjectItem[] = [
     description_ar: 'مبنى سكني حتى 9 طوابק',
   },
   {
-    image: '/client-inadlan.jpg',
+    image: '/client-inadlan.jpeg',
     name_en: 'i-Nadlan',
     name_he: 'איי-נדל״ן',
     name_ar: 'آي-للعقارات',
