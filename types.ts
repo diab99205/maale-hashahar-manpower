@@ -1,19 +1,28 @@
+import { LucideIcon } from 'lucide-react';
+
 export type Language = 'he' | 'ar' | 'en';
 
 export interface Translation {
+  // Navigation
   nav_home: string;
   nav_about: string;
   nav_services: string;
   nav_projects: string;
   nav_contact: string;
+  
+  // Hero
   hero_title: string;
   hero_subtitle: string;
   hero_cta: string;
+  
+  // Sections
   about_title: string;
   about_desc: string;
   services_title: string;
   projects_title: string;
   why_us_title: string;
+  
+  // Contact Form
   contact_title: string;
   contact_name: string;
   contact_email: string;
@@ -25,7 +34,7 @@ export interface Translation {
   footer_rights: string;
   
   // Accessibility
-  access_title: string; // Keep for backward compat or button tooltip
+  access_title: string;
   accessibility: string;
   accessibilityTools: string;
   customizeYourExperience: string;
@@ -57,16 +66,22 @@ export interface Translation {
   resetToDefault: string;
   needHelp: string;
   viewFullStatement: string;
+
+  // Index signature to allow dynamic access if needed
+  [key: string]: string;
 }
 
+// FIXED: Updated to match your App.tsx usage
 export interface ServiceItem {
-  icon: string;
-  titleKey: string; 
+  icon: LucideIcon; // It's a component, not a string
+  label_he: string;
+  label_ar: string;
+  label_en: string;
 }
 
+// CORRECT: matches your multilingual setup
 export interface ProjectItem {
   image: string;
-  // We replace single name/location/desc with language-specific ones
   name_he: string;
   name_ar: string;
   name_en: string;
@@ -79,8 +94,6 @@ export interface ProjectItem {
 }
 
 export interface AccessibilityState {
-  // We keep this for the legacy App code structure if needed, 
-  // but the new component manages state internally.
   largeText: boolean;
   highContrast: boolean;
   underlineLinks: boolean;

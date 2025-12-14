@@ -3,13 +3,14 @@ import { TRANSLATIONS, SERVICES_LIST, PROJECTS_LIST, CONTACT_INFO } from './cons
 import { Language } from './types';
 import AccessibilityPanel from './components/AccessibilityPanel';
 import LanguageSwitcher from './components/LanguageSwitcher';
-import { Phone, Mail, Menu, X, CheckCircle, ArrowRight, Instagram, Facebook, ChevronDown } from 'lucide-react';
+import { Phone, Mail, Menu, X, CheckCircle, ArrowRight, Instagram, Facebook, ChevronDown, FileCheck } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 function App() {
   const [lang, setLang] = useState<Language>('he');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [fileName, setFileName] = useState<string>(''); // State for uploaded file
 
   const t = TRANSLATIONS[lang];
   const dir = lang === 'en' ? 'ltr' : 'rtl';
@@ -28,6 +29,13 @@ function App() {
     document.documentElement.dir = dir;
     document.documentElement.lang = lang;
   }, [lang, dir]);
+
+  // Handle File Selection
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files.length > 0) {
+      setFileName(e.target.files[0].name);
+    }
+  };
 
   // Styling constants - Yellow Theme
   const theme = {
@@ -425,15 +433,37 @@ function App() {
                     <input required type="email" name="email" className="w-full px-4 py-3 rounded-md border-2 font-medium focus:ring-0 outline-none transition-all bg-slate-50 border-slate-200 focus:border-amber-400 focus:bg-white" />
                   </div>
 
+                  {/* Updated CV Upload Field */}
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-500">{t.contact_cv}</label>
-                    <div className="relative border-2 border-dashed rounded-md p-8 text-center cursor-pointer transition-colors group border-slate-300 hover:border-amber-400 hover:bg-yellow-50">
-                        <input required type="file" name="cv" className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" />
-                        <div className="pointer-events-none">
-                           <div className="mx-auto w-12 h-12 mb-3 rounded-full flex items-center justify-center bg-slate-100 text-slate-400 group-hover:bg-amber-400 group-hover:text-white transition-colors">
-                              <Mail size={24} />
+                    
+                    <div className={`relative border-2 rounded-md p-8 text-center cursor-pointer transition-colors group 
+                      ${fileName ? 'border-amber-400 bg-amber-50 border-solid' : 'border-dashed border-slate-300 hover:border-amber-400 hover:bg-yellow-50'}
+                    `}>
+                        {/* The Actual Input */}
+                        <input 
+                          required 
+                          type="file" 
+                          name="cv" 
+                          onChange={handleFileChange} 
+                          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" 
+                        />
+                        
+                        {/* The Visual Part */}
+                        <div className="pointer-events-none flex flex-col items-center justify-center">
+                           <div className={`w-12 h-12 mb-3 rounded-full flex items-center justify-center transition-colors
+                             ${fileName ? 'bg-amber-400 text-slate-900' : 'bg-slate-100 text-slate-400 group-hover:bg-amber-400 group-hover:text-white'}
+                           `}>
+                              {/* Show Checkmark if uploaded, Mail icon if not */}
+                              {fileName ? <FileCheck size={24} /> : <Mail size={24} />}
                            </div>
-                           <span className="text-sm font-medium text-slate-500">PDF / Word / Image</span>
+                           
+                           {/* Show Filename if uploaded, Instructions if not */}
+                           {fileName ? (
+                              <span className="text-sm font-bold text-slate-900 break-all px-4">{fileName}</span>
+                           ) : (
+                              <span className="text-sm font-medium text-slate-500">PDF / Word / Image</span>
+                           )}
                         </div>
                     </div>
                   </div>
