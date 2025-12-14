@@ -3,7 +3,7 @@ import { TRANSLATIONS, SERVICES_LIST, PROJECTS_LIST, CONTACT_INFO } from './cons
 import { Language } from './types';
 import AccessibilityPanel from './components/AccessibilityPanel';
 import LanguageSwitcher from './components/LanguageSwitcher';
-import { Phone, Mail, Menu, X, CheckCircle, ArrowRight, Instagram, Facebook, ChevronDown, FileCheck } from 'lucide-react';
+import { Phone, Mail, Menu, X, CheckCircle, ArrowRight, Instagram, Facebook, ChevronDown, FileCheck, Forklift } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 function App() {

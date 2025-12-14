@@ -1,5 +1,5 @@
 import { Translation, ProjectItem, Language } from './types';
-import { HardHat, Truck, ShieldCheck, ClipboardList, Users } from 'lucide-react';
+import { HardHat, Truck, ShieldCheck, ClipboardList, Users, Forklift } from 'lucide-react';
 
 export const TRANSLATIONS: Record<Language, Translation> = {
   he: {
@@ -182,8 +182,8 @@ export const SERVICES_LIST = [
   { icon: Users, label_he: 'עובדים כלליים', label_ar: 'عمال عامون', label_en: 'General Workers' },
   { icon: ShieldCheck, label_he: 'עוזרי בטיחות', label_ar: 'مساعدو أمان', label_en: 'Safety Assistants' },
   { icon: ClipboardList, label_he: 'מנהלי עבודה', label_ar: 'مديرو عمل', label_en: 'Site Managers' },
-  { icon: HardHat, label_he: 'אתרים', label_ar: 'إشارات', label_en: 'Signalmen' },
-  { icon: Truck, label_he: 'נהגי מלגזה', label_ar: 'سائقي رافعات شوكية', label_en: 'Forklift Drivers' },
+  { icon: HardHat, label_he: 'אתתים', label_ar: 'إشارات', label_en: 'Signalmen' },
+  { icon: Forklift, label_he: 'נהגי מלגזה', label_ar: 'سائقي رافعات شوكية', label_en: 'Forklift Drivers' },
 ];
 
 export const PROJECTS_LIST: ProjectItem[] = [
