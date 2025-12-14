@@ -381,7 +381,14 @@ function App() {
                   </div>
                   <div>
                     <p className="text-sm uppercase tracking-wider mb-1 text-slate-400">{t.contact_phone}</p>
-                    <a href={`tel:${CONTACT_INFO.phone}`} className="text-2xl font-bold hover:text-amber-400 transition-colors">{CONTACT_INFO.phone}</a>
+                    {/* FIXED: Added dir="ltr" and block text-left to prevent flipping */}
+                    <a 
+                      href={`tel:${CONTACT_INFO.phone}`} 
+                      className="text-2xl font-bold hover:text-amber-400 transition-colors block text-left"
+                      dir="ltr"
+                    >
+                      {CONTACT_INFO.phone}
+                    </a>
                   </div>
                 </div>
 
@@ -391,7 +398,14 @@ function App() {
                   </div>
                   <div>
                     <p className="text-sm uppercase tracking-wider mb-1 text-slate-400">{t.contact_email}</p>
-                    <a href={`mailto:${CONTACT_INFO.email}`} className="text-xl font-bold hover:text-amber-400 transition-colors">{CONTACT_INFO.email}</a>
+                    {/* FIXED: Added dir="ltr" and block text-left to prevent flipping */}
+                    <a 
+                      href={`mailto:${CONTACT_INFO.email}`} 
+                      className="text-xl font-bold hover:text-amber-400 transition-colors block text-left"
+                      dir="ltr"
+                    >
+                      {CONTACT_INFO.email}
+                    </a>
                   </div>
                 </div>
 
